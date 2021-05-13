@@ -192,6 +192,83 @@ Elixir is what would happen if Erlang, Clojure, and Ruby somehow had a baby and 
 –Devin Torres
 #+END_QUOTE
 
+* Some Companies using Elixir
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/companies/discord-elixir-banner.png
+  :TITLE:    white
+  :SLIDE:    white cover-image white_footer
+  :END:
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+solo para nota[fn:2]
+solo para nota[fn:3]
+solo para nota[fn:4]
+#+END_QUOTE
+
+* 
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/companies/toyota_connected_conf.png]]
+#+END_CENTER
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Nota[fn:5]
+Nota[fn:6]
+Nota[fn:7]
+#+END_QUOTE
+
+* 
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 320px
+[[file:images/companies/pinterest.jpeg]]
+#+END_CENTER
+
+- 200 servidores python a solo 4 con Elixir.
+- 30 instancias c32.xl con Java a solo 15 con Elixir.
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Nota13[fn:8]
+#+END_QUOTE
+
+* 
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/companies/apc-schneider.jpg]]
+#+END_CENTER
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Nota[fn:9]
+#+END_QUOTE
+
+* 
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/companies/square_enix.png]]
+#+END_CENTER
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Nota[fn:10]
+#+END_QUOTE
+
+
+* Workshop
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
 * 
   :PROPERTIES:
   :FILL:     images/livebook.png
@@ -201,9 +278,154 @@ Elixir is what would happen if Erlang, Clojure, and Ruby somehow had a baby and 
 
 #+ATTR_HTML: :class note
 #+BEGIN_QUOTE
-- [[http://167.99.120.123/][Presentación]]
+- [[http://167.99.120.123/][LiveView in production]]
 - Password: elixir_workshop_codeable
 #+END_QUOTE
+
+* Pattern Matching
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Pattern Matching
+#+BEGIN_CENTER
+#+ATTR_HTML: :width 300px
+[[file:images/babe_pattern.gif]]
+#+END_CENTER
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+Nota[fn:11]
+Nota[fn:12]
+#+END_QUOTE
+
+* patron = data
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+** Pattern Matching
+2 partes:
+- *Data*: Expresion evaluada contra la cual se hara una comparación.
+- *Patron*: Forma de data.
+  -Contiene variables.
+
+** Pattern Matching
+Elixir *tratará* de asignar valores a las variables para que la comparación sea verdadera.
+
+- La *asignación de variables* es una *posible consecuencia* de pattern matching. 
+
+** Pattern Matching
+#+BEGIN_SRC elixir
+iex> nombre = "Albert"
+"Albert"
+iex> apodo = "amiguito"
+"amiguito"
+#+END_SRC
+** Pattern Matching
+Las variables pueden reasignarse.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+iex> nombre = "Albert"
+"Albert"
+iex> nombre = "Amiguito"
+"Amiguito"
+#+END_SRC
+
+** Pattern Matching
+Patrones complejos y multipartes puede ser usadas
+
+Ejemplo:
+#+BEGIN_SRC elixir
+iex> {nombre, apodo} = {"Albert", "amiguito"}
+{"Albert", "amiguito"}
+iex> nombre
+"Albert"
+iex> apodo
+"amiguito"
+#+END_SRC
+
+** Pattern Matching
+Variables solo pueden enlazar una vez por match.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+#Contrajemplo
+iex> {edad, edad} = {35, 15}
+(MatchError) no match of right hand side value: {35, 15}
+#+END_SRC
+
+** Pattern Matching
+Usamos =_= para ignorar elementos en el patron.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+iex> {nombre, _} = {"Albert", "Amiguito"}
+{"Albert", "Amiguito"}
+iex> nombre
+"Albert"
+#Tambien puedo usar la siguiente forma solo por un tema de documentación
+iex> {nombre, _apodo} = {"Albert", "Amiguito"}
+{"Albert", "Amiguito"}
+iex> edad
+warning: ...........
+#+END_SRC
+
+** Pattern Matching
+En el patron podemos incluir informacion.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+iex> {"Albert", apodo} = {"Albert", "Amiguito"}
+{"Albert", "Amiguito"}
+iex> apodo
+"Amiguito"
+
+iex> {"Amiguito", apodo} = {"Albert", "Amiguito"}
+(MatchError) no match of right hand side value: 
+#+END_SRC
+
+** Operador Match
+Usamos =^= cuando queremos usar el valor de las variables pero en el lado del patron.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+iex> nombre = "Albert"
+"Albert"
+iex> {^nombre, ciudad} = {"Albert", "Huaraz"}
+{"Albert", "Huaraz"}
+iex> ciudad
+"Huaraz"
+#+END_SRC
+
+** Operador Match
+Todos los Tipos de datos en Elixir pueden ser matcheados.
+
+Ejemplo:
+#+BEGIN_SRC elixir
+#Mapas
+iex> %{nombre: nombre, ciudad: ciudad} = %{nombre: "Albert", ciudad: "Huaraz"}
+#Estructuras
+iex> %Persona{} = %Persona{nombre: "Albert", ciudad: "Huaraz"}
+{"Albert", "Huaraz"}
+#Binarios
+iex> "Hola " <> palabra = "Hola Mundo"
+"Hola Mundo"
+iex> palabra
+mundo
+#+END_SRC
+
+** 😲
+#+BEGIN_SRC elixir
+iex> [<b>a</b>,_,_,_, %{value: <b>a</b>}] = [<b>1</b>, 2, 3, 4, %{value: <b>1</b>}]
+iex> [<b>a</b>,_,_,_, %{value: <b>a</b>}] = [<b>1</b>, 2, 3, 4, %{value: <b>2</b>}]
+#+END_SRC
+
 
 * Thank You ʕ•ᴥ•ʔ
 :PROPERTIES:
@@ -214,3 +436,15 @@ Elixir is what would happen if Erlang, Clojure, and Ruby somehow had a baby and 
 
 * Footnotes
 [fn:1] [[https://erlang-companies.org/][Erlang companies]]
+[fn:2] [[https://content.nanobox.io/discord-elixir-concurrency-template-high-performance/][Discord's Use of Elixir to Handle Concurrency: A Template for Achieving High Performance]]
+[fn:3] [[https://blog.discordapp.com/tagged/elixir][Discord Blog - Tag Elixir]]
+[fn:4] [[https://www.youtube.com/watch?v=P89N1YJBjpA][ZenMonitor: Scaling Distributed Monitoring at Discord | Code BEAM SF 19]]
+
+[fn:5] [[https://www.youtube.com/watch?v=37V6L1EA4ac][ElixirConf 2017 - Elixir The Toyota Way - Powell Kinney]]
+[fn:6] [[https://codesync.global/media/elixir-powers-first-car-share-service-from-toyota/][Elixir powers first Car Share Service from Toyota]]
+[fn:7] [[https://www.drivehui.com/][Hui - Proyecto de Toyota Connected que usa Elixir]]
+[fn:8] [[https://medium.com/@Pinterest_Engineering/introducing-new-open-source-tools-for-the-elixir-community-2f7bb0bb7d8c][Introducing new open-source tools for the Elixir community]]
+[fn:9] [[https://github.com/se-apc][APC Github]]
+[fn:10] [[https://serokell.io/blog/elixir-companies][Some other companies]]
+[fn:11] [[https://www.poetic oding.com/the-beauty-of-pattern-matching-in-elixir/][The beauty of Pattern Matching in elixir]]
+[fn:12] [[https://blog.carbonfive.com/2017/10/19/pattern-matching-in-elixir-five-things-to-remember/][Pattern Matching in Elixir: Five Things To Remember]]
