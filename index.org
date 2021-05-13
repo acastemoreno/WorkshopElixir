@@ -1,7 +1,7 @@
 * Slide Options                           :noexport:
 # ======= Appear in cover-slide ====================
 #+TITLE: Elixir workshop
-#+SUBTITLE: Introducción, Features iniciales
+#+SUBTITLE: Introducción, Workshop
 #+COMPANY: Codeable Cohort 2
 #+AUTHOR: Albert Castellano Moreno
 #+EMAIL: acastemoreno@gmail.com
@@ -30,6 +30,181 @@
   - Side-Projects y trabajos freelancer.
 - I love elixir ❤️
 
+* Contenido
+- Introducción
+ - Porque fue creado?
+ - En que esta siendo utilizado?
+- Workshop
+ - Pattern Matching
+ - Functiones
+ - Pipe operator ❤️
+
+* Porque fue creado?
+  :PROPERTIES:
+  :SLIDE:    segue dark quote
+  :ASIDE:    right bottom
+  :ARTICLE:  flexbox vleft auto-fadein
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/libros.jpg
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/cpu0.jpg
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/array-procesadores.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/multithreaded_programming.jpg
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/ruby_process.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/codigo.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/ruby_results.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* Segue (Hide Title)
+  :PROPERTIES:
+  :TITLE: hide
+  :SLIDE: segue dark quote
+  :ASIDE: right bottom
+  :ARTICLE: flexbox vleft auto-fadein line-through
+  :END:
+#+BEGIN_QUOTE
+Hasta que un joven programador, parte de la core team de Ruby on Rails, aparecio.
+#+END_QUOTE
+
+* Jose Valim
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 400px
+[[file:images/jose_valim.jpg]]
+#+END_CENTER
+
+* se encontro con un libro
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/seven_language.jpg]]
+#+END_CENTER
+
+* 
+  :PROPERTIES:
+  :FILL:     images/Erlang_logo.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* 
+  :PROPERTIES:
+  :FILL:     images/telefonista.jpg
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+90% of all internet traffic going through routers and switches controlled by Erlang.
+#+END_QUOTE
+
+* Companies that are using Erlang
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 370px
+[[file:images/WhatsApp.png]]
+#+END_CENTER
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+solo para nota[fn:1]
+#+END_QUOTE
+
+* Proceso de creación (2011)
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/pineapple_pen.gif]]
+#+END_CENTER
+
+* 
+  :PROPERTIES:
+  :FILL:     images/logos.jpg
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+* Ruby -> Elixir (Developer Joy)
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 400px
+[[file:images/BOB-ROSS.jpg]]
+#+END_CENTER
+
+* Erlang -> Elixir (Runtime and 40 years of libraries)
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/erlang_elixir.png]]
+#+END_CENTER
+
+* Clojure -> Elixir (Metaprogramación)
+#+BEGIN_CENTER
+#+ATTR_HTML: :height 420px
+[[file:images/metaprogramming.jpg]]
+#+END_CENTER
+
+* Segue (Hide Title)
+  :PROPERTIES:
+  :TITLE: hide
+  :SLIDE: segue dark quote
+  :ASIDE: right bottom
+  :ARTICLE: flexbox vleft auto-fadein line-through
+  :END:
+#+BEGIN_QUOTE
+Elixir is what would happen if Erlang, Clojure, and Ruby somehow had a baby and it wasn’t an accident.
+
+–Devin Torres
+#+END_QUOTE
+
+* 
+  :PROPERTIES:
+  :FILL:     images/livebook.png
+  :TITLE:    white
+  :SLIDE:    white contain-image
+  :END:
+
+#+ATTR_HTML: :class note
+#+BEGIN_QUOTE
+- [[http://167.99.120.123/][Presentación]]
+- Password: elixir_workshop_codeable
+#+END_QUOTE
+
 * Thank You ʕ•ᴥ•ʔ
 :PROPERTIES:
 :SLIDE: thank-you-slide segue
@@ -38,3 +213,4 @@
 :END:
 
 * Footnotes
+[fn:1] [[https://erlang-companies.org/][Erlang companies]]
